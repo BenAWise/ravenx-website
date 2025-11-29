@@ -285,6 +285,49 @@ ul {
     color: var(--color-text-secondary);
 }
 
+/* Trusted By Section */
+.trusted-by {
+    padding: var(--spacing-md) 0 var(--spacing-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--color-bg);
+}
+
+.trusted-label {
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    opacity: 0.6;
+}
+
+.client-logo-img {
+    height: 30px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(200%);
+    /* Make them white/grey */
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.client-logo-img:hover {
+    opacity: 1;
+    filter: grayscale(0%) brightness(100%);
+    /* Restore original color on hover */
+}
+
 /* Philosophy Section */
 .philosophy {
     padding: var(--spacing-xl) 0;
