@@ -286,10 +286,16 @@ ul {
 }
 
 /* Trusted By Section */
-.trusted-by {
-    padding: var(--spacing-md) 0 var(--spacing-lg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    background-color: var(--color-bg);
+/* Trusted By Section (Inside Hero) */
+.hero-trusted {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(to top, var(--color-bg) 0%, rgba(11, 9, 10, 0) 100%);
+    z-index: 10;
 }
 
 .trusted-label {
@@ -316,16 +322,16 @@ ul {
     width: auto;
     max-width: 150px;
     object-fit: contain;
-    filter: grayscale(100%) brightness(200%);
-    /* Make them white/grey */
+    filter: brightness(0) invert(1);
+    /* Force all logos to white */
     opacity: 0.5;
     transition: all 0.3s ease;
 }
 
 .client-logo-img:hover {
     opacity: 1;
-    filter: grayscale(0%) brightness(100%);
-    /* Restore original color on hover */
+    /* Keep them white on hover for consistency, or remove filter to show color if safe */
+    /* For now, staying white is safer for black logos on dark bg */
 }
 
 /* Philosophy Section */
