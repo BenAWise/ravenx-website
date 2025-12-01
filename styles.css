@@ -281,6 +281,21 @@ ul {
     display: block;
 }
 
+/* Pill-style eyebrow for content sections */
+.philosophy .hero-eyebrow,
+.services .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+}
+
 .hero h1 {
     margin-bottom: var(--spacing-md);
 }
@@ -386,6 +401,7 @@ ul {
 /* Services Section */
 .services {
     padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg);
 }
 
 .section-header {
@@ -487,18 +503,26 @@ ul {
 /* Founders' Dossier */
 .founders-dossier {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-surface);
+    background-color: var(--color-bg);
     position: relative;
 }
 
 .section-label {
-    display: block;
-    text-align: center;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-accent);
-    margin-bottom: var(--spacing-xl);
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-lg);
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+}
+
+.founders-dossier .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .founder-card {
@@ -579,21 +603,25 @@ ul {
 /* As Seen In */
 .as-seen-in {
     padding: var(--spacing-lg) 0;
-    background-color: var(--color-bg);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--color-surface);
 }
 
 .seen-label {
-    display: block;
-    text-align: center;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #D4AF37;
-    /* Metallic Gold */
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
     margin-bottom: var(--spacing-md);
-    opacity: 0.8;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+}
+
+.as-seen-in .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .recognition-grid {
