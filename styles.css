@@ -48,6 +48,10 @@ body {
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     position: relative;
+    background-image:
+        radial-gradient(ellipse 100% 80% at 10% 30%, rgba(20, 35, 60, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 60% at 90% 15%, rgba(45, 20, 35, 0.4) 0%, transparent 45%),
+        radial-gradient(ellipse 90% 70% at 75% 85%, rgba(30, 20, 50, 0.35) 0%, transparent 50%);
 }
 
 body::after {
@@ -247,7 +251,7 @@ ul {
     justify-content: space-between;
     gap: var(--spacing-md);
     padding-top: 120px;
-    padding-bottom: var(--spacing-lg);
+    padding-bottom: 0;
     position: relative;
 }
 
