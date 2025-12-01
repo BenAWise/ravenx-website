@@ -250,7 +250,7 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     gap: var(--spacing-md);
-    padding-top: 120px;
+    padding-top: 160px;
     padding-bottom: 0;
     position: relative;
 }
