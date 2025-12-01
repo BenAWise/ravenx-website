@@ -40,6 +40,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--color-bg);
     color: var(--color-text-main);
@@ -241,6 +245,25 @@ ul {
 
 .nav-links a:hover {
     color: var(--color-text-main);
+}
+
+.nav-links a.active {
+    color: var(--color-text-main);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    border-radius: 1px;
+}
+
+.nav-links a[data-section] {
+    position: relative;
 }
 
 /* Hero Section */

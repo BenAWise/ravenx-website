@@ -17,9 +17,9 @@
         <div class="container">
             <a href="#" class="logo">Rav<span>enx</span></a>
             <nav class="nav-links">
-                <a href="#philosophy">Philosophy</a>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
+                <a href="#philosophy" data-section="philosophy">Approach</a>
+                <a href="#services" data-section="services">Services</a>
+                <a href="#about" data-section="about">Leadership</a>
                 <a href="#contact" class="btn btn-primary"
                     style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Contact</a>
             </nav>
@@ -35,7 +35,7 @@
                 <p class="fade-in delay-200">We've built $1.6B+ in revenue—Fortune 100 deals, IPO leadership, the full journey. We embed with your team and stay until the numbers move.</p>
                 <div class="hero-actions fade-in delay-300">
                     <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Philosophy</a>
+                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Approach</a>
                 </div>
             </div>
         </div>
@@ -255,6 +255,50 @@
             el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
             observer.observe(el);
         });
+
+        // Active nav highlighting on scroll
+        const sections = document.querySelectorAll('section[id], footer[id]');
+        const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+        const hero = document.querySelector('.hero');
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('data-section') === id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '-40% 0px -60% 0px',
+            threshold: 0
+        });
+
+        // Clear active state when hero is in view
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -60% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(section => {
+            navObserver.observe(section);
+        });
+
+        if (hero) {
+            heroObserver.observe(hero);
+        }
     </script>
 </body>
 
