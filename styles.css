@@ -521,7 +521,7 @@ ul {
 /* Founders' Dossier */
 .founders-dossier {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-bg);
+    background-color: var(--color-surface);
     position: relative;
 }
 
@@ -621,7 +621,7 @@ ul {
 /* As Seen In */
 .as-seen-in {
     padding: var(--spacing-lg) 0;
-    background-color: var(--color-surface);
+    background-color: var(--color-bg);
 }
 
 .seen-label {
