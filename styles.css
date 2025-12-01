@@ -213,7 +213,7 @@ ul {
     background-color: rgba(20, 18, 19, 0.85);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 0.75rem 1.5rem;
 }
 
@@ -421,6 +421,7 @@ ul {
 .stat-card {
     background-color: var(--color-bg);
     padding: var(--spacing-md);
+    border-radius: 4px;
 }
 
 .stat-number {
@@ -459,6 +460,7 @@ ul {
     background-color: var(--color-surface);
     padding: var(--spacing-lg) var(--spacing-md);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
     transition: all 0.3s ease;
 }
 
@@ -617,6 +619,7 @@ ul {
     background: rgba(255, 255, 255, 0.03);
     padding: var(--spacing-md);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
 }
 
 .stat-item {
