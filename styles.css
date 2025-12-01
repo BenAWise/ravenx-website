@@ -12,7 +12,7 @@
     --color-surface-hover: #1F1F1F;
     --color-accent: #D91C1F;
     --color-accent-hover: #B01215;
-    --color-text-main: #FFFFFF;
+    --color-text-main: #F5F3F4;
     --color-text-secondary: #D3D3D3;
     --color-text-muted: #888888;
     --color-border: #333333;
@@ -398,7 +398,6 @@ ul {
 .stat-card {
     background-color: var(--color-bg);
     padding: var(--spacing-md);
-    border-left: 2px solid var(--color-accent);
 }
 
 .stat-number {
@@ -447,7 +446,7 @@ ul {
 
 .service-icon {
     font-size: 2rem;
-    color: var(--color-accent);
+    color: var(--color-text-muted);
     margin-bottom: var(--spacing-md);
     display: block;
 }
