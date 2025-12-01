@@ -241,15 +241,12 @@ ul {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    /* Allow growth */
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding-top: 160px;
-    /* Explicit spacing to clear header */
-    padding-bottom: var(--spacing-md);
-    gap: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
     position: relative;
-    overflow: hidden;
 }
 
 .hero::before {
@@ -289,11 +286,9 @@ ul {
     color: var(--color-text-secondary);
 }
 
-/* Trusted By Section */
 /* Trusted By Section (Inside Hero) */
 .hero-trusted {
     position: relative;
-    margin-top: auto;
     width: 100%;
     padding: var(--spacing-md) 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
