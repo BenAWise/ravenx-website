@@ -244,7 +244,8 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 160px;
+    gap: var(--spacing-md);
+    padding-top: 120px;
     padding-bottom: var(--spacing-lg);
     position: relative;
 }
@@ -290,12 +291,10 @@ ul {
 .hero-trusted {
     position: relative;
     width: 100%;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-sm) 0 var(--spacing-md);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     background: linear-gradient(to top, var(--color-bg) 0%, rgba(11, 9, 10, 0) 100%);
     z-index: 10;
-    flex-shrink: 0;
-    /* Prevent shrinking */
 }
 
 .trusted-label {
