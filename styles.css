@@ -240,12 +240,14 @@ ul {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    /* Allow growth */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     padding-top: 160px;
     /* Explicit spacing to clear header */
+    padding-bottom: var(--spacing-md);
+    gap: var(--spacing-lg);
     position: relative;
     overflow: hidden;
 }
@@ -290,14 +292,15 @@ ul {
 /* Trusted By Section */
 /* Trusted By Section (Inside Hero) */
 .hero-trusted {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
+    margin-top: auto;
     width: 100%;
     padding: var(--spacing-md) 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     background: linear-gradient(to top, var(--color-bg) 0%, rgba(11, 9, 10, 0) 100%);
     z-index: 10;
+    flex-shrink: 0;
+    /* Prevent shrinking */
 }
 
 .trusted-label {
@@ -479,5 +482,151 @@ ul {
     .nav-links {
         display: none;
         /* Mobile menu to be implemented if needed */
+    }
+}
+
+/* Founders' Dossier */
+.founders-dossier {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-surface);
+    position: relative;
+}
+
+.section-label {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xl);
+}
+
+.founder-card {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: start;
+}
+
+.founder-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.founder-role {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.founder-name {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.founder-bio {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+    max-width: 600px;
+}
+
+.highlight {
+    color: var(--color-text-main);
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.founder-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+}
+
+/* As Seen In */
+.as-seen-in {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.seen-label {
+    display: block;
+    text-align: center;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #D4AF37;
+    /* Metallic Gold */
+    margin-bottom: var(--spacing-md);
+    opacity: 0.8;
+}
+
+.recognition-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.separator {
+    color: var(--color-text-muted);
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .founder-card {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .founder-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .interlude-text {
+        font-size: 1.5rem;
     }
 }

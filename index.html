@@ -94,6 +94,84 @@
         </div>
     </section>
 
+    <!-- Founders' Dossier -->
+    <section id="about" class="founders-dossier">
+        <div class="container">
+            <span class="section-label">The Leadership</span>
+
+            <!-- Jen Mormile -->
+            <div class="founder-card">
+                <div class="founder-info">
+                    <span class="founder-role">Founder & CEO</span>
+                    <h2 class="founder-name">Jennifer Mormile</h2>
+                    <p class="founder-bio">Former Chief Business Officer at Condé Nast running a <span
+                            class="highlight">$500M P&L</span>. Founding executive of a start-up Health division that
+                        aligned 22 verticals. Led a Series A funding and delivered <span class="highlight">$60M net-new
+                            growth</span> by year two.</p>
+                    <p class="founder-bio">Pioneering hire at Everyday Health, scaling from $7M to <span
+                            class="highlight">$200M</span>, culminating in a triumphant IPO and $450M acquisition.</p>
+                </div>
+                <div class="founder-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">$1.6B+</span>
+                        <span class="stat-label">Revenue Driven</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">IPO</span>
+                        <span class="stat-label">Leadership</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">50</span>
+                        <span class="stat-label">Most Influential</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrie Moore -->
+            <div class="founder-card reverse">
+                <div class="founder-info">
+                    <span class="founder-role">Co-Founder & President</span>
+                    <h2 class="founder-name">Carrie Moore</h2>
+                    <p class="founder-bio">Growth strategist and certified elite performance coach. Led the largest
+                        combined division at Condé Nast (Health, Beauty, Retail, CPG) to a massive turnaround with <span
+                            class="highlight">67% growth</span>.</p>
+                    <p class="founder-bio">Head of Strategic Partnerships at Crossix and Everyday Health. Key
+                        contributor to meteoric growth leading to IPO and <span class="highlight">$450M sale</span>.</p>
+                </div>
+                <div class="founder-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">67%</span>
+                        <span class="stat-label">Division Growth</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">$120M+</span>
+                        <span class="stat-label">Org Leadership</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Top</span>
+                        <span class="stat-label">Innovator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- As Seen In -->
+    <section class="as-seen-in">
+        <div class="container">
+            <span class="seen-label">Industry Recognition</span>
+            <div class="recognition-grid">
+                <span class="recognition-item">PR Week 50 Most Influential</span>
+                <span class="separator">•</span>
+                <span class="recognition-item">Folio 100 Top Innovator</span>
+                <span class="separator">•</span>
+                <span class="recognition-item">Cannes Lions Speaker</span>
+                <span class="separator">•</span>
+                <span class="recognition-item">Founding Member of Chief</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Services / Pillars Section -->
     <section id="services" class="services">
         <div class="container">
@@ -155,6 +233,31 @@
         </div>
     </footer>
 
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-scroll').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>
