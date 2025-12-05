@@ -1,9 +1,56 @@
-/* 
-   RavenX Ventures - Design System 
+/*
+   RavenX Ventures - Design System
    Based on Brand Guide: Dark Mode, Red Accent, Premium Feel
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700;800&display=swap');
+/* Custom Fonts */
+@font-face {
+    font-family: 'Pragmatica Extended';
+    src: url('assets/fonts/PragmaticaExtended-Book.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pragmatica Extended';
+    src: url('assets/fonts/pragmatica-extended-bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Now';
+    src: url('assets/fonts/HelveticaNowDisplay-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Now';
+    src: url('assets/fonts/HelveticaNowDisplay-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Now';
+    src: url('assets/fonts/HelveticaNowDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Now';
+    src: url('assets/fonts/HelveticaNowDisplay-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
     /* Colors */
@@ -18,8 +65,8 @@
     --color-border: #333333;
 
     /* Typography */
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Pragmatica Extended', sans-serif;
+    --font-body: 'Helvetica Now', sans-serif;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
