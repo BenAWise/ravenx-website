@@ -719,13 +719,17 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
+    flex-wrap: nowrap;
+    gap: var(--spacing-sm);
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+.recognition-item {
+    white-space: nowrap;
 }
 
 .separator {
