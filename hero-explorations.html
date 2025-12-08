@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RavenX Hero Explorations | Background Textures</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           EXPLORATION NAV + SCROLL BEHAVIOR ONLY
+           ═══════════════════════════════════════════════════════════════ */
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+
+        /* Disable the global body background so each section controls its own */
+        body {
+            background-color: #0B090A;
+            background-image: none;
+        }
+
+        body::after {
+            display: none;
+        }
+
+        /* Navigation for exploration */
+        .exp-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            background: rgba(11, 9, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .exp-nav a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .exp-nav a:hover {
+            color: #fff;
+            border-color: var(--color-accent);
+            background: rgba(217, 28, 31, 0.1);
+        }
+
+        /* Make each hero a scroll-snap section */
+        .hero {
+            scroll-snap-align: start;
+            position: relative;
+        }
+
+        /* Hide the default hero ::before glow */
+        .hero::before {
+            display: none;
+        }
+
+        /* Option label */
+        .exp-label {
+            position: absolute;
+            top: 100px;
+            left: 2rem;
+            font-family: var(--font-heading);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: rgba(255,255,255,0.25);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            z-index: 20;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           OPTION 1: OBSIDIAN SILK
+           ═══════════════════════════════════════════════════════════════ */
+
+        #option-1 {
+            background: var(--color-bg);
+        }
+
+        #option-1 .bg-layer {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 70% 20%, rgba(217, 28, 31, 0.18) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 20% 80%, rgba(139, 69, 69, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 80% at 50% 100%, rgba(30, 15, 15, 0.8) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        #option-1 .noise-layer {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #option-1 .silk-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background:
+                linear-gradient(135deg, transparent 40%, rgba(217, 28, 31, 0.04) 45%, transparent 50%),
+                linear-gradient(225deg, transparent 40%, rgba(255, 255, 255, 0.02) 45%, transparent 50%);
+            animation: silkFlow 20s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        @keyframes silkFlow {
+            0%, 100% { transform: translateX(-25%) skewX(-5deg); }
+            50% { transform: translateX(0%) skewX(5deg); }
+        }
+
+        #option-1 .luxury-orb {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            right: -15%;
+            top: 5%;
+            background: radial-gradient(circle at 30% 30%,
+                rgba(217, 28, 31, 0.2) 0%,
+                rgba(139, 20, 20, 0.1) 30%,
+                transparent 70%);
+            filter: blur(80px);
+            z-index: 2;
+            animation: orbFloat 15s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, 20px) scale(1.05); }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           OPTION 2: SMOKE DRIFT
+           ═══════════════════════════════════════════════════════════════ */
+
+        #option-2 {
+            background: #080606;
+            overflow: hidden;
+        }
+
+        #option-2 .smoke-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: visible;
+        }
+
+        #option-2 .smoke {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: smokeDrift 20s ease-in-out infinite;
+        }
+
+        #option-2 .smoke:nth-child(1) {
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(217, 28, 31, 0.5) 0%, rgba(217, 28, 31, 0.2) 40%, transparent 70%);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        #option-2 .smoke:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, rgba(120, 30, 40, 0.6) 0%, rgba(80, 20, 25, 0.3) 40%, transparent 70%);
+            top: 40%;
+            right: 5%;
+            animation-delay: -5s;
+            animation-duration: 25s;
+        }
+
+        #option-2 .smoke:nth-child(3) {
+            width: 450px;
+            height: 350px;
+            background: radial-gradient(ellipse, rgba(180, 40, 50, 0.5) 0%, rgba(139, 30, 40, 0.25) 40%, transparent 70%);
+            bottom: 10%;
+            left: 30%;
+            animation-delay: -10s;
+            animation-duration: 22s;
+        }
+
+        #option-2 .smoke:nth-child(4) {
+            width: 550px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(100, 25, 35, 0.7) 0%, rgba(60, 15, 20, 0.35) 40%, transparent 70%);
+            top: 5%;
+            right: 20%;
+            animation-delay: -15s;
+            animation-duration: 28s;
+        }
+
+        #option-2 .smoke:nth-child(5) {
+            width: 400px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(150, 35, 45, 0.55) 0%, rgba(100, 25, 30, 0.3) 40%, transparent 70%);
+            bottom: 30%;
+            left: 5%;
+            animation-delay: -8s;
+            animation-duration: 24s;
+        }
+
+        @keyframes smokeDrift {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(60px, -30px) scale(1.1);
+            }
+        }
+
+        #option-2 .noise-layer {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        #option-2 .vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 20%, rgba(8, 6, 6, 0.7) 100%);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        #option-2 .glow-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(217, 28, 31, 0.08) 0%, transparent 100%);
+            z-index: 2;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           OPTION 3: CRIMSON EMBER
+           ═══════════════════════════════════════════════════════════════ */
+
+        #option-3 {
+            background: #0C0808;
+        }
+
+        #option-3 .bg-layer {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 80% at 75% 25%, rgba(217, 28, 31, 0.22) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 20% 70%, rgba(139, 20, 20, 0.12) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        #option-3 .noise-layer {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #option-3 .ember-field {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        #option-3 .ember {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: emberRise 8s ease-out infinite;
+        }
+
+        @keyframes emberRise {
+            0% { opacity: 0; transform: translateY(100vh) scale(0.5); }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.2; }
+            100% { opacity: 0; transform: translateY(-20vh) scale(0); }
+        }
+
+        #option-3 .ember:nth-child(1) { left: 10%; animation-delay: 0s; }
+        #option-3 .ember:nth-child(2) { left: 25%; animation-delay: 1.5s; animation-duration: 10s; }
+        #option-3 .ember:nth-child(3) { left: 40%; animation-delay: 3s; animation-duration: 7s; }
+        #option-3 .ember:nth-child(4) { left: 55%; animation-delay: 0.5s; animation-duration: 9s; }
+        #option-3 .ember:nth-child(5) { left: 70%; animation-delay: 2s; animation-duration: 11s; }
+        #option-3 .ember:nth-child(6) { left: 85%; animation-delay: 4s; animation-duration: 8s; }
+        #option-3 .ember:nth-child(7) { left: 15%; animation-delay: 5s; animation-duration: 12s; }
+        #option-3 .ember:nth-child(8) { left: 60%; animation-delay: 6s; animation-duration: 9s; }
+
+        #option-3 .light-beam {
+            position: absolute;
+            top: 0;
+            right: 10%;
+            width: 500px;
+            height: 120%;
+            background: linear-gradient(180deg,
+                rgba(217, 28, 31, 0.12) 0%,
+                rgba(217, 28, 31, 0.04) 50%,
+                transparent 100%);
+            transform: skewX(-15deg);
+            z-index: 2;
+        }
+
+        #option-3 .bottom-fog {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background: linear-gradient(to top,
+                rgba(12, 8, 8, 1) 0%,
+                rgba(12, 8, 8, 0.7) 40%,
+                transparent 100%);
+            z-index: 4;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           OPTION 4: VELVET SHADOW (DEEP BURGUNDY FABRIC)
+           ═══════════════════════════════════════════════════════════════ */
+
+        #option-4 {
+            background: linear-gradient(160deg, #12080A 0%, #0A0608 50%, #080406 100%);
+        }
+
+        #option-4 .bg-layer {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='velvet'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23velvet)' opacity='0.15'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        #option-4 .gradient-layer {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 100% 70% at 50% 110%, rgba(80, 20, 30, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 70% 60% at 85% 15%, rgba(120, 30, 50, 0.35) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 40% at 10% 60%, rgba(100, 25, 40, 0.25) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(80, 20, 35, 0.2) 0%, transparent 30%);
+            z-index: 2;
+        }
+
+        /* Velvet fabric fold effect */
+        #option-4 .velvet-folds {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background:
+                linear-gradient(95deg,
+                    transparent 0%,
+                    rgba(139, 35, 50, 0.08) 20%,
+                    rgba(180, 50, 70, 0.12) 25%,
+                    rgba(139, 35, 50, 0.06) 30%,
+                    transparent 40%,
+                    rgba(100, 25, 40, 0.1) 55%,
+                    rgba(150, 40, 55, 0.15) 60%,
+                    rgba(100, 25, 40, 0.08) 65%,
+                    transparent 80%
+                ),
+                linear-gradient(275deg,
+                    transparent 0%,
+                    rgba(120, 30, 45, 0.1) 30%,
+                    rgba(160, 45, 60, 0.18) 35%,
+                    rgba(120, 30, 45, 0.08) 40%,
+                    transparent 60%
+                );
+        }
+
+        #option-4 .bloom {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            right: -20%;
+            top: -15%;
+            background: radial-gradient(circle,
+                rgba(217, 28, 31, 0.25) 0%,
+                rgba(160, 30, 50, 0.15) 30%,
+                rgba(100, 20, 35, 0.08) 50%,
+                transparent 70%);
+            filter: blur(80px);
+            z-index: 4;
+        }
+
+        #option-4 .bloom-secondary {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            left: -15%;
+            bottom: -10%;
+            background: radial-gradient(circle,
+                rgba(140, 25, 45, 0.2) 0%,
+                rgba(100, 20, 35, 0.1) 40%,
+                transparent 70%);
+            filter: blur(60px);
+            z-index: 4;
+        }
+
+        #option-4 .luxury-lines {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        #option-4 .h-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 5%,
+                rgba(217, 28, 31, 0.15) 20%,
+                rgba(217, 28, 31, 0.25) 50%,
+                rgba(217, 28, 31, 0.15) 80%,
+                transparent 95%);
+        }
+
+        #option-4 .h-line:nth-child(1) { top: 20%; opacity: 0.6; }
+        #option-4 .h-line:nth-child(2) { top: 45%; opacity: 0.8; }
+        #option-4 .h-line:nth-child(3) { top: 70%; opacity: 0.5; }
+
+        /* Soft vignette for depth */
+        #option-4 .vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, rgba(8, 4, 6, 0.5) 100%);
+            z-index: 6;
+            pointer-events: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           OPTION 5: GRADIENT MESH (SOFT ORGANIC)
+           ═══════════════════════════════════════════════════════════════ */
+
+        #option-5 {
+            background: #0A0809;
+            overflow: hidden;
+        }
+
+        #option-5 .mesh-container {
+            position: absolute;
+            inset: -20%;
+            width: 140%;
+            height: 140%;
+            z-index: 1;
+        }
+
+        #option-5 .mesh-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: meshFloat 25s ease-in-out infinite;
+        }
+
+        #option-5 .mesh-blob:nth-child(1) {
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(217, 28, 31, 0.6) 0%, rgba(217, 28, 31, 0.3) 40%, transparent 70%);
+            top: -10%;
+            right: -5%;
+            animation-delay: 0s;
+        }
+
+        #option-5 .mesh-blob:nth-child(2) {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(160, 30, 50, 0.65) 0%, rgba(139, 20, 35, 0.3) 40%, transparent 70%);
+            bottom: -15%;
+            left: -10%;
+            animation-delay: -8s;
+            animation-duration: 30s;
+        }
+
+        #option-5 .mesh-blob:nth-child(3) {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 50, 70, 0.45) 0%, rgba(180, 40, 60, 0.2) 40%, transparent 70%);
+            top: 30%;
+            left: 20%;
+            animation-delay: -15s;
+            animation-duration: 28s;
+        }
+
+        #option-5 .mesh-blob:nth-child(4) {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(130, 25, 40, 0.7) 0%, rgba(100, 15, 25, 0.35) 40%, transparent 70%);
+            bottom: 20%;
+            right: 15%;
+            animation-delay: -5s;
+            animation-duration: 22s;
+        }
+
+        #option-5 .mesh-blob:nth-child(5) {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(217, 28, 31, 0.4) 0%, rgba(217, 28, 31, 0.15) 40%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -12s;
+            animation-duration: 20s;
+        }
+
+        @keyframes meshFloat {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -20px) scale(1.05);
+            }
+            50% {
+                transform: translate(-20px, 30px) scale(0.95);
+            }
+            75% {
+                transform: translate(-30px, -10px) scale(1.02);
+            }
+        }
+
+        #option-5 .noise-layer {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        #option-5 .soft-vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, rgba(10, 8, 9, 0.6) 100%);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        /* Subtle light streak */
+        #option-5 .light-streak {
+            position: absolute;
+            top: 0;
+            right: 15%;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.03) 0%,
+                rgba(255, 255, 255, 0.01) 30%,
+                transparent 60%);
+            transform: skewX(-10deg);
+            z-index: 2;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           OPTION 6: CHARCOAL LINEN
+           ═══════════════════════════════════════════════════════════════ */
+
+        #option-6 {
+            background: #0B0A09;
+        }
+
+        /* Woven texture - horizontal threads */
+        #option-6 .weave-h {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 2px,
+                rgba(255, 255, 255, 0.03) 2px,
+                rgba(255, 255, 255, 0.03) 3px,
+                transparent 3px,
+                transparent 6px
+            );
+        }
+
+        /* Woven texture - vertical threads */
+        #option-6 .weave-v {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 2px,
+                rgba(255, 255, 255, 0.025) 2px,
+                rgba(255, 255, 255, 0.025) 3px,
+                transparent 3px,
+                transparent 6px
+            );
+        }
+
+        /* Fabric noise texture */
+        #option-6 .fabric-texture {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fabric'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fabric)' opacity='0.12'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* Warm subtle glow */
+        #option-6 .warm-glow {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            background:
+                radial-gradient(ellipse 80% 60% at 70% 25%, rgba(217, 28, 31, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 25% 70%, rgba(180, 80, 60, 0.08) 0%, transparent 50%);
+        }
+
+        /* Soft vignette */
+        #option-6 .linen-vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            background: radial-gradient(ellipse 85% 75% at 50% 50%, transparent 35%, rgba(8, 6, 5, 0.6) 100%);
+            pointer-events: none;
+        }
+
+        /* Ensure content is above texture */
+        #option-6 .container,
+        #option-6 .hero-content,
+        #option-6 .hero-trusted {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+            .exp-label { display: none; }
+            .exp-nav { padding: 0.75rem 1rem; gap: 0.5rem; }
+            .exp-nav a { font-size: 0.55rem; padding: 0.4rem 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="exp-nav">
+        <a href="#option-1">01 Obsidian Silk</a>
+        <a href="#option-2">02 Smoke Drift</a>
+        <a href="#option-3">03 Crimson Ember</a>
+        <a href="#option-4">04 Velvet Shadow</a>
+        <a href="#option-5">05 Gradient Mesh</a>
+        <a href="#option-6">06 Charcoal Linen</a>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OPTION 1: OBSIDIAN SILK
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="option-1" class="hero">
+        <span class="exp-label">Option 01 · Obsidian Silk</span>
+
+        <!-- Background layers -->
+        <div class="bg-layer"></div>
+        <div class="noise-layer"></div>
+        <div class="silk-wave"></div>
+        <div class="luxury-orb"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in delay-100">Revenue acceleration for <span class="text-accent">growth-stage</span> and <span class="text-accent">enterprise</span> companies.</h1>
+                <p class="fade-in delay-200">We've built $1.6B+ in revenue—Fortune 100 deals, IPO leadership, the full journey. We embed with your team and stay until the numbers move.</p>
+                <div class="hero-actions fade-in delay-300">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Approach</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-trusted fade-in delay-300">
+            <div class="container">
+                <span class="trusted-label">Trusted by leaders at</span>
+                <div class="logo-grid">
+                    <img src="assets/logos/rvo_health.svg" alt="RVO Health" class="client-logo-img">
+                    <img src="assets/logos/tripadvisor.svg" alt="Tripadvisor" class="client-logo-img">
+                    <img src="assets/logos/axel_springer.svg" alt="Axel Springer" class="client-logo-img">
+                    <img src="assets/logos/conde_nast.svg" alt="Condé Nast" class="client-logo-img">
+                    <img src="assets/logos/the_atlantic.svg" alt="The Atlantic" class="client-logo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OPTION 2: SMOKE DRIFT
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="option-2" class="hero">
+        <span class="exp-label">Option 02 · Smoke Drift</span>
+
+        <!-- Background layers -->
+        <div class="smoke-layer">
+            <div class="smoke"></div>
+            <div class="smoke"></div>
+            <div class="smoke"></div>
+            <div class="smoke"></div>
+            <div class="smoke"></div>
+        </div>
+        <div class="glow-accent"></div>
+        <div class="noise-layer"></div>
+        <div class="vignette"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in delay-100">Revenue acceleration for <span class="text-accent">growth-stage</span> and <span class="text-accent">enterprise</span> companies.</h1>
+                <p class="fade-in delay-200">We've built $1.6B+ in revenue—Fortune 100 deals, IPO leadership, the full journey. We embed with your team and stay until the numbers move.</p>
+                <div class="hero-actions fade-in delay-300">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Approach</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-trusted fade-in delay-300">
+            <div class="container">
+                <span class="trusted-label">Trusted by leaders at</span>
+                <div class="logo-grid">
+                    <img src="assets/logos/rvo_health.svg" alt="RVO Health" class="client-logo-img">
+                    <img src="assets/logos/tripadvisor.svg" alt="Tripadvisor" class="client-logo-img">
+                    <img src="assets/logos/axel_springer.svg" alt="Axel Springer" class="client-logo-img">
+                    <img src="assets/logos/conde_nast.svg" alt="Condé Nast" class="client-logo-img">
+                    <img src="assets/logos/the_atlantic.svg" alt="The Atlantic" class="client-logo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OPTION 3: CRIMSON EMBER
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="option-3" class="hero">
+        <span class="exp-label">Option 03 · Crimson Ember</span>
+
+        <!-- Background layers -->
+        <div class="bg-layer"></div>
+        <div class="noise-layer"></div>
+        <div class="ember-field">
+            <div class="ember"></div>
+            <div class="ember"></div>
+            <div class="ember"></div>
+            <div class="ember"></div>
+            <div class="ember"></div>
+            <div class="ember"></div>
+            <div class="ember"></div>
+            <div class="ember"></div>
+        </div>
+        <div class="light-beam"></div>
+        <div class="bottom-fog"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in delay-100">Revenue acceleration for <span class="text-accent">growth-stage</span> and <span class="text-accent">enterprise</span> companies.</h1>
+                <p class="fade-in delay-200">We've built $1.6B+ in revenue—Fortune 100 deals, IPO leadership, the full journey. We embed with your team and stay until the numbers move.</p>
+                <div class="hero-actions fade-in delay-300">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Approach</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-trusted fade-in delay-300">
+            <div class="container">
+                <span class="trusted-label">Trusted by leaders at</span>
+                <div class="logo-grid">
+                    <img src="assets/logos/rvo_health.svg" alt="RVO Health" class="client-logo-img">
+                    <img src="assets/logos/tripadvisor.svg" alt="Tripadvisor" class="client-logo-img">
+                    <img src="assets/logos/axel_springer.svg" alt="Axel Springer" class="client-logo-img">
+                    <img src="assets/logos/conde_nast.svg" alt="Condé Nast" class="client-logo-img">
+                    <img src="assets/logos/the_atlantic.svg" alt="The Atlantic" class="client-logo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OPTION 4: VELVET SHADOW
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="option-4" class="hero">
+        <span class="exp-label">Option 04 · Velvet Shadow</span>
+
+        <!-- Background layers -->
+        <div class="bg-layer"></div>
+        <div class="gradient-layer"></div>
+        <div class="velvet-folds"></div>
+        <div class="bloom"></div>
+        <div class="bloom-secondary"></div>
+        <div class="luxury-lines">
+            <div class="h-line"></div>
+            <div class="h-line"></div>
+            <div class="h-line"></div>
+        </div>
+        <div class="vignette"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in delay-100">Revenue acceleration for <span class="text-accent">growth-stage</span> and <span class="text-accent">enterprise</span> companies.</h1>
+                <p class="fade-in delay-200">We've built $1.6B+ in revenue—Fortune 100 deals, IPO leadership, the full journey. We embed with your team and stay until the numbers move.</p>
+                <div class="hero-actions fade-in delay-300">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Approach</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-trusted fade-in delay-300">
+            <div class="container">
+                <span class="trusted-label">Trusted by leaders at</span>
+                <div class="logo-grid">
+                    <img src="assets/logos/rvo_health.svg" alt="RVO Health" class="client-logo-img">
+                    <img src="assets/logos/tripadvisor.svg" alt="Tripadvisor" class="client-logo-img">
+                    <img src="assets/logos/axel_springer.svg" alt="Axel Springer" class="client-logo-img">
+                    <img src="assets/logos/conde_nast.svg" alt="Condé Nast" class="client-logo-img">
+                    <img src="assets/logos/the_atlantic.svg" alt="The Atlantic" class="client-logo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OPTION 5: GRADIENT MESH
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="option-5" class="hero">
+        <span class="exp-label">Option 05 · Gradient Mesh</span>
+
+        <!-- Background layers -->
+        <div class="mesh-container">
+            <div class="mesh-blob"></div>
+            <div class="mesh-blob"></div>
+            <div class="mesh-blob"></div>
+            <div class="mesh-blob"></div>
+            <div class="mesh-blob"></div>
+        </div>
+        <div class="light-streak"></div>
+        <div class="noise-layer"></div>
+        <div class="soft-vignette"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in delay-100">Revenue acceleration for <span class="text-accent">growth-stage</span> and <span class="text-accent">enterprise</span> companies.</h1>
+                <p class="fade-in delay-200">We've built $1.6B+ in revenue—Fortune 100 deals, IPO leadership, the full journey. We embed with your team and stay until the numbers move.</p>
+                <div class="hero-actions fade-in delay-300">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Approach</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-trusted fade-in delay-300">
+            <div class="container">
+                <span class="trusted-label">Trusted by leaders at</span>
+                <div class="logo-grid">
+                    <img src="assets/logos/rvo_health.svg" alt="RVO Health" class="client-logo-img">
+                    <img src="assets/logos/tripadvisor.svg" alt="Tripadvisor" class="client-logo-img">
+                    <img src="assets/logos/axel_springer.svg" alt="Axel Springer" class="client-logo-img">
+                    <img src="assets/logos/conde_nast.svg" alt="Condé Nast" class="client-logo-img">
+                    <img src="assets/logos/the_atlantic.svg" alt="The Atlantic" class="client-logo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OPTION 6: CHARCOAL LINEN
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="option-6" class="hero">
+        <span class="exp-label">Option 06 · Charcoal Linen</span>
+
+        <!-- Background layers -->
+        <div class="weave-h"></div>
+        <div class="weave-v"></div>
+        <div class="fabric-texture"></div>
+        <div class="warm-glow"></div>
+        <div class="linen-vignette"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in delay-100">Revenue acceleration for <span class="text-accent">growth-stage</span> and <span class="text-accent">enterprise</span> companies.</h1>
+                <p class="fade-in delay-200">We've built $1.6B+ in revenue—Fortune 100 deals, IPO leadership, the full journey. We embed with your team and stay until the numbers move.</p>
+                <div class="hero-actions fade-in delay-300">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Approach</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-trusted fade-in delay-300">
+            <div class="container">
+                <span class="trusted-label">Trusted by leaders at</span>
+                <div class="logo-grid">
+                    <img src="assets/logos/rvo_health.svg" alt="RVO Health" class="client-logo-img">
+                    <img src="assets/logos/tripadvisor.svg" alt="Tripadvisor" class="client-logo-img">
+                    <img src="assets/logos/axel_springer.svg" alt="Axel Springer" class="client-logo-img">
+                    <img src="assets/logos/conde_nast.svg" alt="Condé Nast" class="client-logo-img">
+                    <img src="assets/logos/the_atlantic.svg" alt="The Atlantic" class="client-logo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
