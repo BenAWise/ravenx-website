@@ -1,0 +1,130 @@
+/* Case Studies Section */
+.case-studies-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg);
+}
+
+.case-studies-section .section-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.case-studies {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.case-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    padding: 2.5rem;
+    background: var(--color-surface);
+    align-items: center;
+    border-left: 3px solid var(--color-accent);
+}
+
+.case-card.reverse {
+    grid-template-columns: auto 1fr;
+    border-left: none;
+    border-right: 3px solid var(--color-accent);
+}
+
+.case-card.reverse .case-info {
+    order: 2;
+}
+
+.case-card.reverse .case-stats {
+    order: 1;
+}
+
+.case-info .client-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+}
+
+.case-info .client-type {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.case-info .case-quote {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.case-info .case-quote .highlight {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.case-info .attribution {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.case-stats {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.case-stats .stat-item {
+    text-align: center;
+}
+
+.case-stats .stat-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.1;
+}
+
+.case-stats .stat-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .case-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .case-card.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .case-card.reverse .case-info,
+    .case-card.reverse .case-stats {
+        order: unset;
+    }
+
+    .case-stats {
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+}
