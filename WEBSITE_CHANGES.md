@@ -8,7 +8,7 @@
 - [x] **4. Add Healthcare Recognition** - Add "Most Influential in Healthcare" to Industry Recognition.
 - [x] **5. Contact Form** - Set up working contact form that sends to Jen's email.
   - [ ] **Follow-up:** Jen needs to verify her email in Formspree (verification sent)
-- [ ] **6. Social Links** - Remove Twitter, make LinkedIn more prominent.
+- [x] **6. Social Links** - Remove Twitter, make LinkedIn more prominent.
 - [ ] **7. Update Revenue Figure** - Change "$1.6B+" to "$2B+" in hero section.
 - [ ] **8. Mini Case Studies** - Add horizontal case study bars with client results (structure ready, content pending from Jen).
 
