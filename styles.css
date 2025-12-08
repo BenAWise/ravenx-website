@@ -261,7 +261,7 @@ ul {
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
-    padding: 0.4rem 1.5rem;
+    padding: 0.4rem 1.5rem 0.4rem 0;
 }
 
 .logo {
@@ -280,6 +280,7 @@ ul {
     height: 4rem;
     width: auto;
     display: block;
+    margin-left: -0.5rem;
 }
 
 .nav-links {
