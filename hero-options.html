@@ -89,9 +89,19 @@
             width: 100%;
         }
 
-        /* Hide the noise overlay from styles.css if it interferes, 
-           but usually it adds texture so we might keep it. 
+        /* Hide the noise overlay from styles.css if it interferes,
+           but usually it adds texture so we might keep it.
            Let's keep it for now. */
+
+        /* Text treatment for backgrounds with white/light areas */
+        body.needs-text-shadow .hero-content h1,
+        body.needs-text-shadow .hero-content p {
+            text-shadow:
+                0 0 30px rgba(0,0,0,1),
+                0 0 60px rgba(0,0,0,1),
+                0 0 90px rgba(0,0,0,0.8),
+                0 2px 4px rgba(0,0,0,1);
+        }
     </style>
 </head>
 
@@ -158,6 +168,13 @@
     </div>
 
     <script>
+        // Backgrounds that need text shadow due to white/light areas
+        const needsTextShadow = [
+            'combustion_cloud.png',
+            'polished_strike.png',
+            'steps.png'
+        ];
+
         function setBg(url, btn) {
             // Apply image to body
             document.body.style.backgroundImage = `url('${url}')`;
@@ -165,6 +182,10 @@
             // Handle active state
             document.querySelectorAll('.bg-switcher button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            // Toggle text shadow class based on background
+            const needsShadow = needsTextShadow.some(img => url.includes(img));
+            document.body.classList.toggle('needs-text-shadow', needsShadow);
         }
 
         // Ensure the first button is active on load matched with CSS default
