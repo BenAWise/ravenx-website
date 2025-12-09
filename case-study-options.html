@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study Style Options</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding-top: 6rem;
+        }
+
+        .style-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .style-label {
+            color: var(--color-accent);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .style-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .style-desc {
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           CASE STUDY CARDS (mirrors founder-card)
+           ============================================ */
+        .case-studies {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .case-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            padding: 2.5rem;
+            background: var(--color-surface);
+            align-items: center;
+        }
+
+        .case-card.reverse {
+            grid-template-columns: auto 1fr;
+        }
+
+        .case-card.reverse .case-info {
+            order: 2;
+        }
+
+        .case-card.reverse .case-stats {
+            order: 1;
+        }
+
+        .case-info .client-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .case-info .client-name {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .case-info .case-quote {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .case-info .case-quote .highlight {
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .case-info .attribution {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+
+        .case-stats {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .case-stats .stat-item {
+            text-align: center;
+        }
+
+        .case-stats .stat-value {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.1;
+        }
+
+        .case-stats .stat-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* ============================================
+           VARIATION A: With Logo
+           ============================================ */
+        .var-a .case-info .client-logo {
+            height: 28px;
+            margin-bottom: 1rem;
+            filter: grayscale(100%) brightness(2);
+            opacity: 0.8;
+        }
+
+        /* ============================================
+           VARIATION B: Accent border
+           ============================================ */
+        .var-b .case-card {
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .var-b .case-card.reverse {
+            border-left: none;
+            border-right: 3px solid var(--color-accent);
+        }
+
+        /* ============================================
+           VARIATION C: Compact single stat
+           ============================================ */
+        .var-c .case-stats {
+            flex-direction: column;
+            gap: 0.25rem;
+            text-align: right;
+            min-width: 150px;
+        }
+
+        .var-c .case-stats .stat-value {
+            font-size: 3rem;
+            color: var(--color-accent);
+        }
+
+        .var-c .case-stats .stat-label {
+            font-size: 0.85rem;
+        }
+
+        .var-c .case-card.reverse .case-stats {
+            text-align: left;
+        }
+
+        /* ============================================
+           VARIATION D: Quote marks
+           ============================================ */
+        .var-d .case-quote::before {
+            content: '"';
+            color: var(--color-accent);
+            font-size: 3rem;
+            font-family: Georgia, serif;
+            line-height: 0;
+            vertical-align: -0.5em;
+            margin-right: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- VARIATION A: With Client Logo -->
+    <section class="style-section var-a">
+        <div class="container">
+            <p class="style-label">Variation A</p>
+            <h2 class="style-title">With Client Logo</h2>
+            <p class="style-desc">Logo replaces text client name, mirrors founder cards exactly</p>
+
+            <div class="case-studies">
+                <div class="case-card">
+                    <div class="case-info">
+                        <span class="client-label">Case Study</span>
+                        <img src="assets/logos/axel_springer.svg" alt="Axel Springer" class="client-logo">
+                        <p class="case-quote">The RavenX team brought a rare combination of <span class="highlight">strategic insights, practical business acumen, and diplomacy skills</span> to our partnership.</p>
+                        <p class="attribution">— Gabriel Brotman, COO, Axel Springer US</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">$35M</span>
+                            <span class="stat-label">Revenue</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">35:1</span>
+                            <span class="stat-label">ROI</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">6 mo</span>
+                            <span class="stat-label">To Goal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card reverse">
+                    <div class="case-info">
+                        <span class="client-label">Case Study</span>
+                        <img src="assets/logos/tripadvisor.svg" alt="Tripadvisor" class="client-logo">
+                        <p class="case-quote">Working with RavenX has been a <span class="highlight">game-changer</span> for our entire EMEA sales team. RavenX equipped our team with practical, high-impact sales strategies.</p>
+                        <p class="attribution">— Justin Reid, Head of Sales, AMEA</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">35%</span>
+                            <span class="stat-label">YoY Growth</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Targets Hit</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">4</span>
+                            <span class="stat-label">Quarters</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIATION B: Accent Border -->
+    <section class="style-section var-b">
+        <div class="container">
+            <p class="style-label">Variation B</p>
+            <h2 class="style-title">With Accent Border</h2>
+            <p class="style-desc">Red accent border on alternating sides</p>
+
+            <div class="case-studies">
+                <div class="case-card">
+                    <div class="case-info">
+                        <span class="client-label">Axel Springer</span>
+                        <h3 class="client-name">Multi-Billion Dollar Global Org</h3>
+                        <p class="case-quote">The RavenX team brought a rare combination of <span class="highlight">strategic insights, practical business acumen, and diplomacy skills</span> to our partnership.</p>
+                        <p class="attribution">— Gabriel Brotman, COO, Axel Springer US</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">$35M</span>
+                            <span class="stat-label">Revenue</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">35:1</span>
+                            <span class="stat-label">ROI</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">6 mo</span>
+                            <span class="stat-label">To Goal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card reverse">
+                    <div class="case-info">
+                        <span class="client-label">Tripadvisor</span>
+                        <h3 class="client-name">Multi-Billion Dollar Public Org</h3>
+                        <p class="case-quote">Working with RavenX has been a <span class="highlight">game-changer</span> for our entire EMEA sales team. RavenX equipped our team with practical, high-impact sales strategies.</p>
+                        <p class="attribution">— Justin Reid, Head of Sales, AMEA</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">35%</span>
+                            <span class="stat-label">YoY Growth</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Targets Hit</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">4</span>
+                            <span class="stat-label">Quarters</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIATION C: Single Big Stat -->
+    <section class="style-section var-c">
+        <div class="container">
+            <p class="style-label">Variation C</p>
+            <h2 class="style-title">Single Hero Stat</h2>
+            <p class="style-desc">One large stat per card, accent color</p>
+
+            <div class="case-studies">
+                <div class="case-card">
+                    <div class="case-info">
+                        <span class="client-label">Axel Springer</span>
+                        <h3 class="client-name">Multi-Billion Dollar Global Org</h3>
+                        <p class="case-quote">The RavenX team brought a rare combination of <span class="highlight">strategic insights, practical business acumen, and diplomacy skills</span> to our partnership.</p>
+                        <p class="attribution">— Gabriel Brotman, COO, Axel Springer US</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">$35M</span>
+                            <span class="stat-label">Revenue in 2 Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card reverse">
+                    <div class="case-info">
+                        <span class="client-label">Morning Brew</span>
+                        <h3 class="client-name">Mid-Size Fast Growth</h3>
+                        <p class="case-quote">Working with RavenX has been incredible. RavenX helped give Morning Brew sellers the <span class="highlight">tools and confidence</span> needed to take our revenue org to the next level.</p>
+                        <p class="attribution">— Austin Rief, CEO & Founder, Morning Brew</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">3x</span>
+                            <span class="stat-label">Revenue Growth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-info">
+                        <span class="client-label">Tripadvisor</span>
+                        <h3 class="client-name">Multi-Billion Dollar Public Org</h3>
+                        <p class="case-quote">Working with RavenX has been a <span class="highlight">game-changer</span> for our entire EMEA sales team. Practical, high-impact sales strategies that boosted our confidence and execution.</p>
+                        <p class="attribution">— Justin Reid, Head of Sales, AMEA</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">35%</span>
+                            <span class="stat-label">YoY Growth</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIATION D: Quote Marks -->
+    <section class="style-section var-d">
+        <div class="container">
+            <p class="style-label">Variation D</p>
+            <h2 class="style-title">With Quote Marks</h2>
+            <p class="style-desc">Large decorative quote mark</p>
+
+            <div class="case-studies">
+                <div class="case-card">
+                    <div class="case-info">
+                        <span class="client-label">Axel Springer</span>
+                        <p class="case-quote">The RavenX team brought a rare combination of <span class="highlight">strategic insights, practical business acumen, and diplomacy skills</span> to our partnership.</p>
+                        <p class="attribution">— Gabriel Brotman, COO, Axel Springer US</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">$35M</span>
+                            <span class="stat-label">Revenue</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">35:1</span>
+                            <span class="stat-label">ROI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card reverse">
+                    <div class="case-info">
+                        <span class="client-label">Morning Brew</span>
+                        <p class="case-quote">Working with RavenX has been incredible. RavenX helped give Morning Brew sellers the <span class="highlight">tools and confidence</span> needed to take our revenue org to the next level.</p>
+                        <p class="attribution">— Austin Rief, CEO & Founder, Morning Brew</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">3x</span>
+                            <span class="stat-label">Revenue</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">$70M</span>
+                            <span class="stat-label">Pace</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

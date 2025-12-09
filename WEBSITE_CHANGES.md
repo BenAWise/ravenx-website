@@ -10,7 +10,7 @@
   - [ ] **Follow-up:** Jen needs to verify her email in Formspree (verification sent)
 - [x] **6. Social Links** - Remove Twitter, make LinkedIn more prominent.
 - [x] **7. Update Revenue Figure** - Change "$1.6B+" to "$2B+" in hero section.
-- [ ] **8. Mini Case Studies** - Add horizontal case study bars with client results (structure ready, content pending from Jen).
+- [x] **8. Mini Case Studies** - Add horizontal case study bars with client results (anonymized per Jen's request).
 
 ---
 

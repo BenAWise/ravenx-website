@@ -760,3 +760,12 @@ ul {
         font-size: 1.5rem;
     }
 }
+
+/* Desktop Alignment: Match Navbar Width Exactly */
+@media (min-width: 1200px) {
+
+    section .container,
+    .site-footer .container {
+        padding: 0 0 0 0;
+    }
+}
