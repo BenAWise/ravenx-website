@@ -11,6 +11,15 @@
     align-items: start;
 }
 
+.contact-info {
+    order: 2;
+    text-align: right;
+}
+
+.contact-form {
+    order: 1;
+}
+
 .contact-info h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: var(--spacing-md);
@@ -82,6 +91,15 @@
     .contact-section .contact-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
+    }
+
+    .contact-info {
+        order: 0;
+        text-align: left;
+    }
+
+    .contact-form {
+        order: 0;
     }
 
     .contact-form .btn {

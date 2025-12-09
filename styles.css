@@ -252,7 +252,7 @@ ul {
 }
 
 .site-header .container {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -378,8 +378,8 @@ ul {
 .services .section-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-end;
+    text-align: right;
     width: 100%;
 }
 
@@ -619,7 +619,7 @@ ul {
 .founders-dossier .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .founder-card {
@@ -630,6 +630,7 @@ ul {
     padding-bottom: var(--spacing-xl);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     align-items: start;
+    width: 100%;
 }
 
 .founder-card:last-child {
@@ -719,12 +720,12 @@ ul {
 .as-seen-in .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .recognition-grid {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: nowrap;
     gap: var(--spacing-sm);
