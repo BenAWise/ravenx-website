@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RavenX | Hero Background Options</title>
+    <meta name="description" content="Revenue acceleration for growth-stage and enterprise companies.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Override default body background to allow image switching */
+        body {
+            background-color: var(--color-bg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: background-image 0.5s ease-in-out;
+            /* Default image */
+            background-image: url('assets/images/x_logo.png');
+        }
+
+        /* Ensure hero takes full height for the demo */
+        .hero {
+            min-height: 100vh;
+        }
+
+        /* Switcher UI */
+        .bg-switcher-container {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            /* Let clicks pass through around the switcher */
+        }
+
+        .bg-switcher {
+            pointer-events: auto;
+            background: rgba(11, 9, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: flex;
+            gap: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .bg-switcher button {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-family: "Pragmatica Extended", sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .bg-switcher button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #D91C1F;
+            transition: width 0.3s ease;
+        }
+
+        .bg-switcher button:hover {
+            color: #fff;
+        }
+
+        .bg-switcher button.active {
+            color: #fff;
+        }
+
+        .bg-switcher button.active::after {
+            width: 100%;
+        }
+
+        /* Hide the noise overlay from styles.css if it interferes, 
+           but usually it adds texture so we might keep it. 
+           Let's keep it for now. */
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="logo"><img src="assets/logos/ravenx-icon.svg" alt="RavenX" class="logo-img"></a>
+            <nav class="nav-links">
+                <a href="#philosophy" data-section="philosophy">Approach</a>
+                <a href="#services" data-section="services">Services</a>
+                <a href="#about" data-section="about">Leadership</a>
+                <a href="#results" data-section="results">Results</a>
+                <a href="#contact" class="btn btn-primary"
+                    style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in delay-100">Revenue acceleration for <span class="text-accent">growth-stage</span> and
+                    <span class="text-accent">enterprise</span> companies.</h1>
+                <p class="fade-in delay-200">We've built $2B+ in revenue—Fortune 100 deals, IPO leadership, the full
+                    journey. We embed with your team and stay until the numbers move.</p>
+                <div class="hero-actions fade-in delay-300">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#philosophy" class="btn btn-outline" style="margin-left: 1rem;">Our Approach</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trusted By Section (Inside Hero) -->
+        <div class="hero-trusted fade-in delay-300">
+            <div class="container">
+                <span class="trusted-label">Trusted by leaders at</span>
+                <div class="logo-grid">
+                    <img src="assets/logos/rvo_health.svg" alt="RVO Health" class="client-logo-img">
+                    <img src="assets/logos/tripadvisor.svg" alt="Tripadvisor" class="client-logo-img">
+                    <img src="assets/logos/axel_springer.svg" alt="Axel Springer" class="client-logo-img">
+                    <img src="assets/logos/conde_nast.svg" alt="Condé Nast" class="client-logo-img">
+                    <img src="assets/logos/the_atlantic.svg" alt="The Atlantic" class="client-logo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Switcher -->
+    <div class="bg-switcher-container">
+        <div class="bg-switcher">
+            <button onclick="setBg('assets/images/x_logo.png', this)" class="active">Embossed X</button>
+            <button onclick="setBg('assets/images/smoke.png', this)">Fluid Smoke</button>
+            <button onclick="setBg('assets/images/raven_feathers.png', this)">Raven Texture</button>
+            <button onclick="setBg('assets/images/light_line.png', this)">Arch. Light</button>
+        </div>
+    </div>
+
+    <script>
+        function setBg(url, btn) {
+            // Apply image to body
+            document.body.style.backgroundImage = `url('${url}')`;
+
+            // Handle active state
+            document.querySelectorAll('.bg-switcher button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // Ensure the first button is active on load matched with CSS default
+        // (already done in HTML structure)
+    </script>
+</body>
+
+</html>
