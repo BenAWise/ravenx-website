@@ -4,6 +4,12 @@
     background-color: var(--color-bg);
 }
 
+.case-studies-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .case-studies-section .section-label {
     display: block;
     font-size: 0.7rem;
@@ -14,7 +20,7 @@
     padding: 0;
     border: none;
     border-radius: 0;
-    text-align: right;
+    text-align: center;
 }
 
 .case-studies {
