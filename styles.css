@@ -438,7 +438,7 @@ ul {
     align-items: center;
     flex-wrap: wrap;
     gap: var(--spacing-lg);
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .client-logo-img {
@@ -448,7 +448,7 @@ ul {
     object-fit: contain;
     filter: brightness(0) invert(1);
     /* Force all logos to white */
-    opacity: 0.5;
+    opacity: 0.65;
     transition: all 0.3s ease;
 }
 
@@ -775,9 +775,9 @@ ul {
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(ellipse 80% 50% at 70% 20%, rgba(217, 28, 31, 0.10) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(139, 69, 69, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse 100% 80% at 50% 100%, rgba(30, 15, 15, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 50% at 70% 20%, rgba(217, 28, 31, 0.13) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(139, 69, 69, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 100% 80% at 50% 100%, rgba(30, 15, 15, 0.52) 0%, transparent 60%),
         var(--color-bg);
 }
 
