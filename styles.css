@@ -376,13 +376,13 @@ ul {
 .services .hero-eyebrow {
     display: inline-block;
     font-size: 0.875rem;
-    font-weight: 500;
-    text-transform: none;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
     margin-bottom: var(--spacing-md);
     padding: 0.5rem 1.5rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-accent);
     border-radius: 8px;
 }
 
@@ -406,8 +406,9 @@ ul {
 }
 
 .hero h1 {
-    font-size: clamp(1.875rem, 3.75vw, 3.25rem);
+    font-size: clamp(2.25rem, 4.5vw, 4rem);
     margin-bottom: var(--spacing-md);
+    line-height: 1.05;
 }
 
 .hero p {
@@ -463,10 +464,30 @@ ul {
     /* For now, staying white is safer for black logos on dark bg */
 }
 
-/* Philosophy Section */
+/* Philosophy Section - High Contrast White */
 .philosophy {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-surface);
+    background-color: #FFFFFF;
+    color: #0B090A;
+}
+
+.philosophy h2,
+.philosophy p {
+    color: #0B090A;
+}
+
+.philosophy .hero-eyebrow {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.philosophy .stat-card {
+    background-color: #0B090A;
+}
+
+.philosophy .stat-number,
+.philosophy .stat-label {
+    color: #F5F3F4;
 }
 
 .section-grid {
@@ -496,7 +517,7 @@ ul {
     font-family: var(--font-heading);
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--color-text-main);
+    color: var(--color-accent);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -539,13 +560,21 @@ ul {
 
 .service-icon {
     font-size: 2rem;
-    color: var(--color-text-muted);
+    color: var(--color-accent);
+    font-weight: 700;
     margin-bottom: var(--spacing-md);
     display: block;
 }
 
 .service-card h3 {
     margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
+}
+
+.service-card {
+    border-left: 3px solid var(--color-accent);
 }
 
 /* Footer */
@@ -620,13 +649,14 @@ ul {
 .section-label {
     display: inline-block;
     font-size: 0.875rem;
-    text-transform: none;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
     margin-bottom: var(--spacing-lg);
     padding: 0.5rem 1.5rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-accent);
     border-radius: 8px;
+    font-weight: 600;
 }
 
 .founders-dossier .container {
@@ -693,7 +723,8 @@ ul {
 .highlight {
     color: var(--color-text-main);
     font-weight: 600;
-    border-bottom: 1px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 1px;
 }
 
 .founder-stats {
@@ -715,7 +746,7 @@ ul {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-text-main);
+    color: var(--color-accent);
     line-height: 1;
     margin-bottom: 0.25rem;
 }
@@ -736,13 +767,14 @@ ul {
 .seen-label {
     display: inline-block;
     font-size: 0.875rem;
-    text-transform: none;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
     margin-bottom: var(--spacing-md);
     padding: 0.5rem 1.5rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-accent);
     border-radius: 8px;
+    font-weight: 600;
 }
 
 .as-seen-in .container {

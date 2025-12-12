@@ -11,16 +11,16 @@
 }
 
 .case-studies-section .section-label {
-    display: block;
-    font-size: 0.7rem;
+    display: inline-block;
+    font-size: 0.875rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-text-secondary);
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
     margin-bottom: var(--spacing-lg);
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    text-align: center;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    font-weight: 600;
 }
 
 .case-studies {
@@ -101,7 +101,7 @@
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-accent);
     line-height: 1.1;
 }
 
