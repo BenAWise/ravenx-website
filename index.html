@@ -441,6 +441,36 @@
                 }
             });
         }
+
+        // Header hide on scroll down, show on scroll up
+        const siteHeader = document.querySelector('.site-header');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            const currentScrollY = window.scrollY;
+
+            // Always show header at the very top
+            if (currentScrollY < 100) {
+                siteHeader.classList.remove('header-hidden');
+            } else if (currentScrollY > lastScrollY) {
+                // Scrolling down - hide header
+                siteHeader.classList.add('header-hidden');
+            } else {
+                // Scrolling up - show header
+                siteHeader.classList.remove('header-hidden');
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }, { passive: true });
     </script>
 </body>
 
