@@ -69,15 +69,15 @@
     --font-body: 'Helvetica Now', sans-serif;
 
     /* Typography - Font Sizes (change these to update globally) */
-    --text-hero: clamp(2.25rem, 4.5vw, 4rem);
-    --text-section-title: clamp(2.5rem, 6vw, 4.5rem);
-    --text-card-title: clamp(1.75rem, 3vw, 2.25rem);
-    --text-body: 1.2rem;
-    --text-body-large: 1.5rem;
-    --text-small: 0.875rem;
-    --text-label: 0.75rem;
-    --text-stat: 2.5rem;
-    --text-stat-large: 4rem;
+    --text-display: clamp(2.25rem, 4.5vw, 4rem);       /* Hero headline */
+    --text-title: clamp(2.5rem, 6vw, 4.5rem);          /* Section titles: "What We Do", "Who We Are" */
+    --text-subtitle: clamp(1.75rem, 3vw, 2.25rem);     /* Secondary headings: founder names, service headlines */
+    --text-body: 1.2rem;                               /* Body text */
+    --text-body-large: 1.5rem;                         /* Large body text */
+    --text-small: 0.875rem;                            /* Small UI text */
+    --text-label: 0.75rem;                             /* Labels, tiny text */
+    --text-stat: 2.5rem;                               /* Stat numbers */
+    --text-stat-large: 4rem;                           /* Large stat numbers (01, 02, 03) */
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -143,18 +143,18 @@ h6 {
 }
 
 h1 {
-    font-size: clamp(3rem, 5vw, 5rem);
+    font-size: var(--text-display);
     text-transform: uppercase;
     font-weight: 800;
 }
 
 h2 {
-    font-size: clamp(2rem, 3vw, 3rem);
+    font-size: var(--text-title);
     margin-bottom: var(--spacing-md);
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: var(--text-subtitle);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -306,7 +306,7 @@ ul {
 }
 
 .nav-links a {
-    font-size: 0.9rem;
+    font-size: var(--text-small);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -417,7 +417,7 @@ ul {
 }
 
 .hero h1 {
-    font-size: var(--text-hero);
+    font-size: var(--text-display);
     margin-bottom: var(--spacing-md);
     line-height: 1.05;
 }
@@ -441,7 +441,7 @@ ul {
 
 .trusted-label {
     text-align: center;
-    font-size: 0.8rem;
+    font-size: var(--text-label);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text-muted);
@@ -534,7 +534,7 @@ ul {
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: var(--text-small);
     color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -552,7 +552,7 @@ ul {
 }
 
 .section-header-bold h2 {
-    font-size: var(--text-section-title);
+    font-size: var(--text-title);
     color: #FFFFFF;
     text-transform: none;
     letter-spacing: -0.02em;
@@ -599,7 +599,7 @@ ul {
 }
 
 .service-card-bold h3 {
-    font-size: var(--text-card-title);
+    font-size: var(--text-subtitle);
     color: #0B090A;
     margin-bottom: var(--spacing-md);
     text-transform: none;
@@ -637,13 +637,13 @@ ul {
 }
 
 .footer-brand p {
-    font-size: 0.9rem;
+    font-size: var(--text-small);
     max-width: 300px;
     margin-top: var(--spacing-sm);
 }
 
 .footer-links h4 {
-    font-size: 1rem;
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: var(--spacing-md);
@@ -709,6 +709,10 @@ ul {
     align-items: center;
 }
 
+.founders-dossier .section-header-bold h2 {
+    color: var(--color-text-main);
+}
+
 .founder-card {
     display: grid;
     grid-template-columns: auto 1.5fr 1fr;
@@ -744,7 +748,7 @@ ul {
 .founder-role {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--text-small);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text-muted);
@@ -752,7 +756,7 @@ ul {
 }
 
 .founder-name {
-    font-size: 3rem;
+    font-size: var(--text-subtitle);
     margin-bottom: var(--spacing-md);
     letter-spacing: -0.02em;
 }
@@ -834,7 +838,7 @@ ul {
     flex-wrap: nowrap;
     gap: var(--spacing-sm);
     font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-size: var(--text-label);
     color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;

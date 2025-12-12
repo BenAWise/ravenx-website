@@ -64,7 +64,7 @@
 
 .case-info .client-type {
     font-family: var(--font-heading);
-    font-size: var(--text-card-title);
+    font-size: var(--text-subtitle);
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--color-text);

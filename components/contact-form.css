@@ -33,7 +33,7 @@
 }
 
 .contact-info h2 {
-    font-size: var(--text-section-title);
+    font-size: var(--text-title);
     margin-bottom: var(--spacing-md);
 }
 
@@ -89,7 +89,7 @@
 }
 
 .form-success h3 {
-    font-size: var(--text-card-title);
+    font-size: var(--text-subtitle);
     margin-bottom: var(--spacing-sm);
     color: var(--color-text);
 }
