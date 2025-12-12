@@ -64,6 +64,13 @@
     --color-text-muted: #888888;
     --color-border: #333333;
 
+    /* Light Mode Variables */
+    --color-bg-light: #FFFFFF;
+    --color-text-main-light: #000000;
+    --color-text-secondary-light: #333333;
+    --color-border-light: #E5E5E5;
+    --color-surface-light: #F5F5F5;
+
     /* Typography */
     --font-heading: 'Pragmatica Extended', sans-serif;
     --font-body: 'Helvetica Now', sans-serif;
@@ -352,7 +359,7 @@ ul {
     z-index: 0;
 }
 
-.hero > * {
+.hero>* {
     position: relative;
     z-index: 1;
 }
@@ -795,7 +802,123 @@ ul {
     pointer-events: none;
 }
 
-.obsidian-silk > .container {
+/* Light Mode Section Utility */
+.section-light {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main-light);
+    position: relative;
+}
+
+.section-light h2,
+.section-light h3,
+.section-light .stat-number,
+.section-light .founder-name,
+.section-light .client-type {
+    color: var(--color-text-main-light);
+}
+
+.section-light p,
+.section-light .founder-bio,
+.section-light .founder-role,
+.section-light .stat-label,
+.section-light .service-icon {
+    color: var(--color-text-secondary-light);
+}
+
+.section-light .hero-eyebrow {
+    color: var(--color-accent);
+    /* Keep accent color */
+}
+
+.section-light .service-card {
+    background-color: var(--color-surface-light);
+    border-color: var(--color-border-light);
+}
+
+.section-light .service-card:hover {
+    border-color: var(--color-accent);
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Light Mode Case Studies */
+.section-light .case-card {
+    background-color: var(--color-surface-light);
+    border-color: var(--color-border-light);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.section-light .case-info .client-type,
+.section-light .case-stats .stat-value {
+    color: var(--color-text-main-light);
+}
+
+.section-light .case-info .case-quote,
+.section-light .case-info .attribution,
+.section-light .case-stats .stat-label {
+    color: var(--color-text-secondary-light);
+}
+
+.section-light .case-info .case-quote .highlight {
+    color: var(--color-text-main-light);
+    border-bottom-color: var(--color-accent);
+}
+
+/* Bold Headlines for Services in Light Mode */
+.section-light.services h3 {
+    font-size: 2.5rem;
+    /* Bigger and bolder */
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Bio Expansion */
+.bio-full {
+    display: none;
+    margin-top: var(--spacing-sm);
+}
+
+.bio-full.visible {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.bio-toggle {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+    margin-top: var(--spacing-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bio-toggle:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.obsidian-silk>.container {
     position: relative;
     z-index: 2;
 }
