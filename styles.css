@@ -382,39 +382,6 @@ ul {
     display: block;
 }
 
-/* Pill-style eyebrow for content sections */
-.philosophy .hero-eyebrow,
-.services .hero-eyebrow {
-    display: inline-block;
-    font-size: var(--text-small);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-accent);
-    margin-bottom: var(--spacing-md);
-    padding: 0.5rem 1.5rem;
-    border: 1px solid var(--color-accent);
-    border-radius: 8px;
-}
-
-/* Center pill labels in sections */
-.philosophy .container,
-.services .section-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-.philosophy .section-grid {
-    text-align: left;
-    width: 100%;
-}
-
-.philosophy>.container>.hero-eyebrow {
-    margin-bottom: var(--spacing-lg);
-}
 
 .hero h1 {
     font-size: var(--text-display);
@@ -475,75 +442,11 @@ ul {
     /* For now, staying white is safer for black logos on dark bg */
 }
 
-/* Philosophy Section - High Contrast White */
-.philosophy {
-    padding: var(--spacing-xl) 0;
-    background-color: #FFFFFF;
-    color: #0B090A;
-}
-
-.philosophy h2,
-.philosophy p {
-    color: #0B090A;
-}
-
-.philosophy .hero-eyebrow {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
-}
-
-.philosophy .stat-card {
-    background-color: #0B090A;
-}
-
-.philosophy .stat-number,
-.philosophy .stat-label {
-    color: #F5F3F4;
-}
-
-.section-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
-    align-items: center;
-}
-
-.philosophy-content h2 {
-    margin-bottom: var(--spacing-md);
-}
-
-.stat-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-}
-
-.stat-card {
-    background-color: var(--color-bg);
-    padding: var(--spacing-md);
-    border-radius: 4px;
-}
-
-.stat-number {
-    font-family: var(--font-heading);
-    font-size: var(--text-stat);
-    font-weight: 700;
-    color: var(--color-accent);
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: var(--text-small);
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
 
 /* Services Section - BOLD Style */
 .services-bold {
     padding: var(--spacing-xl) 0;
-    background-color: #0B090A;
+    background-color: #FFFFFF;
 }
 
 .section-header-bold {
@@ -553,10 +456,19 @@ ul {
 
 .section-header-bold h2 {
     font-size: var(--text-title);
-    color: #FFFFFF;
+    color: #0B090A;
     text-transform: none;
     letter-spacing: -0.02em;
     font-weight: 800;
+    margin-bottom: var(--spacing-md);
+}
+
+.section-preamble {
+    font-size: var(--text-body-large);
+    color: #333333;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
 .services-grid-bold {
@@ -566,7 +478,7 @@ ul {
 }
 
 .service-card-bold {
-    background-color: #FFFFFF;
+    background-color: #0B090A;
     padding: var(--spacing-lg);
     border-radius: 0;
     position: relative;
@@ -585,7 +497,7 @@ ul {
 
 .service-card-bold:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .service-number {
@@ -600,15 +512,23 @@ ul {
 
 .service-card-bold h3 {
     font-size: var(--text-subtitle);
-    color: #0B090A;
+    color: #FFFFFF;
     margin-bottom: var(--spacing-md);
     text-transform: none;
     font-weight: 700;
     line-height: 1.2;
 }
 
+.service-card-bold .service-teaser {
+    color: var(--color-accent);
+    font-size: var(--text-body);
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
+}
+
 .service-card-bold p {
-    color: #333333;
+    color: #CCCCCC;
     font-size: var(--text-body);
     line-height: 1.7;
 }
