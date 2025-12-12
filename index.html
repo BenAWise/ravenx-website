@@ -57,35 +57,33 @@
     </section>
 
 
-    <!-- Services Section -->
-    <section id="services" class="services-bold">
+    <!-- Services Section - Accordion Style -->
+    <section id="services" class="services-accordion">
         <div class="container">
-            <div class="section-header-bold">
-                <h2>What We Do</h2>
-                <p class="section-preamble">Leveraging decades of expertise in building businesses, we enable our clients to crush their revenue goals, overcome obstacles and achieve exceptional growth.</p>
+            <h2 class="services-title">What We Do</h2>
+
+            <!-- Service 1 - Left aligned -->
+            <div class="service-item align-left">
+                <span class="service-number">01</span>
+                <h3 class="service-headline">We <span class="text-accent">Innovate</span> Your Product</h3>
+                <p class="service-tagline">We craft strategy that delivers the fastest path to growth.</p>
+                <p class="service-body">Drawing on 20+ years of commercial expertise, we bridge the gap between market dynamics and your product suite—competitive differentiation, innovation opportunities, new market entry, and untapped categories.</p>
             </div>
-            <div class="services-grid-bold">
-                <!-- Pillar 1 -->
-                <div class="service-card-bold">
-                    <span class="service-number">01</span>
-                    <h3>We <span class="text-accent">Innovate</span> Your Product</h3>
-                    <p class="service-teaser">We craft strategy that delivers the fastest path to growth.</p>
-                    <p>Drawing on 20+ years of commercial expertise, we bridge the gap between market dynamics and your product suite—competitive differentiation, innovation opportunities, new market entry, and untapped categories.</p>
-                </div>
-                <!-- Pillar 2 -->
-                <div class="service-card-bold">
-                    <span class="service-number">02</span>
-                    <h3>We <span class="text-accent">Crush</span> Your Pitch</h3>
-                    <p class="service-teaser">We turn you into a "Must Buy" in market.</p>
-                    <p>We utilize proven strategies for brand differentiation, product positioning, and contemporary marketing initiatives. The result: accelerated revenue, bigger deals closed faster, and a competitive edge that lasts.</p>
-                </div>
-                <!-- Pillar 3 -->
-                <div class="service-card-bold">
-                    <span class="service-number">03</span>
-                    <h3>We <span class="text-accent">Build</span> Champions</h3>
-                    <p class="service-teaser">We train and coach your people to perform at the highest level.</p>
-                    <p>Our proven IMPACT methodology has transformed teams at startups and multi-billion dollar enterprises alike. Custom training programs and executive mentorship designed to empower modern teams and leaders.</p>
-                </div>
+
+            <!-- Service 2 - Right aligned -->
+            <div class="service-item align-right">
+                <span class="service-number">02</span>
+                <h3 class="service-headline">We <span class="text-accent">Crush</span> Your Pitch</h3>
+                <p class="service-tagline">We turn you into a "Must Buy" in market.</p>
+                <p class="service-body">We utilize proven strategies for brand differentiation, product positioning, and contemporary marketing initiatives. The result: accelerated revenue, bigger deals closed faster, and a competitive edge that lasts.</p>
+            </div>
+
+            <!-- Service 3 - Left aligned -->
+            <div class="service-item align-left">
+                <span class="service-number">03</span>
+                <h3 class="service-headline">We <span class="text-accent">Build</span> Champions</h3>
+                <p class="service-tagline">We train and coach your people to perform at the highest level.</p>
+                <p class="service-body">Our proven IMPACT methodology has transformed teams at startups and multi-billion dollar enterprises alike. Custom training programs and executive mentorship designed to empower modern teams and leaders.</p>
             </div>
         </div>
     </section>
@@ -437,6 +435,22 @@
                 ticking = true;
             }
         }, { passive: true });
+
+        // Accordion toggle
+        function toggleAccordion(trigger) {
+            const item = trigger.closest('.accordion-item');
+            const isOpen = item.classList.contains('open');
+
+            // Close all other accordions
+            document.querySelectorAll('.accordion-item.open').forEach(openItem => {
+                openItem.classList.remove('open');
+            });
+
+            // Toggle current
+            if (!isOpen) {
+                item.classList.add('open');
+            }
+        }
     </script>
 </body>
 
