@@ -131,6 +131,39 @@
                 </div>
             </div>
 
+            <!-- Featured In -->
+            <div class="founders-featured">
+                <h3 class="as-seen-title">As Featured In</h3>
+                <div class="featured-carousel">
+                    <button class="carousel-arrow carousel-prev" aria-label="Previous">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="featured-logos-wrapper">
+                        <div class="featured-logos">
+                            <img src="assets/logos/folio.svg" alt="FOLIO">
+                            <img src="assets/logos/ap.svg" alt="AP">
+                            <img src="assets/logos/adage.svg" alt="AdAge">
+                            <img src="assets/logos/the_beauty_influencers.png" alt="The Beauty Influencers">
+                            <img src="assets/logos/fipp-logo-png_seeklogo-540020.png" alt="FIPP">
+                            <img src="assets/logos/wwd.svg" alt="WWD">
+                            <img src="assets/logos/FiercePharma_idiiFKAi9D_1.svg" alt="Fierce Pharma">
+                            <img src="assets/logos/adweek.svg" alt="Adweek">
+                            <img src="assets/logos/glamour.svg" alt="Glamour">
+                            <img src="assets/logos/mmm.svg" alt="MM+M">
+                            <img src="assets/logos/us_weekly.png" alt="US Weekly">
+                            <img src="assets/logos/prweek.svg" alt="PRWeek">
+                        </div>
+                    </div>
+                    <button class="carousel-arrow carousel-next" aria-label="Next">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
             <!-- Carrie Moore -->
             <div class="founder-card">
                 <div class="founder-left-col">
@@ -450,6 +483,27 @@
                 ticking = true;
             }
         }, { passive: true });
+
+        // Featured logos carousel
+        const featuredLogos = document.querySelector('.featured-logos');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+
+        if (featuredLogos && prevBtn && nextBtn) {
+            let scrollPosition = 0;
+            const scrollAmount = 200;
+
+            nextBtn.addEventListener('click', () => {
+                const maxScroll = featuredLogos.scrollWidth - featuredLogos.parentElement.offsetWidth;
+                scrollPosition = Math.min(scrollPosition + scrollAmount, maxScroll);
+                featuredLogos.style.transform = `translateX(-${scrollPosition}px)`;
+            });
+
+            prevBtn.addEventListener('click', () => {
+                scrollPosition = Math.max(scrollPosition - scrollAmount, 0);
+                featuredLogos.style.transform = `translateX(-${scrollPosition}px)`;
+            });
+        }
     </script>
 </body>
 
