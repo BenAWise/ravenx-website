@@ -1,7 +1,11 @@
 /* Contact Section Styles */
 .contact-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-surface);
+    background-color: #FFFFFF;
+}
+
+.contact-section .section-header-bold h2 {
+    color: #0B090A;
 }
 
 .contact-section .contact-content {
@@ -35,11 +39,11 @@
 .contact-info h3 {
     font-size: var(--text-subtitle);
     margin-bottom: var(--spacing-md);
-    color: var(--color-text-main);
+    color: #0B090A;
 }
 
 .contact-info p {
-    color: var(--color-text-secondary);
+    color: #0B090A;
     font-size: var(--text-body);
 }
 
@@ -53,10 +57,10 @@
 .form-group textarea {
     width: 100%;
     padding: 1rem 1.25rem;
-    background-color: var(--color-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #F5F5F5;
+    border: 1px solid #E0E0E0;
     border-radius: 6px;
-    color: var(--color-text);
+    color: #0B090A;
     font-family: var(--font-body);
     font-size: var(--text-body);
     transition: border-color 0.2s ease;
@@ -64,7 +68,7 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: var(--color-text-secondary);
+    color: #666666;
 }
 
 .form-group input:focus,
