@@ -467,7 +467,7 @@ ul {
     gap: 2rem;
     padding: 2.5rem 0;
     border-bottom: 1px solid #E0E0E0;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .service-item:last-child {
