@@ -10,95 +10,116 @@
     align-items: center;
 }
 
+.case-studies-section .section-header-bold h2 {
+    color: #0B090A;
+}
 
 .case-studies {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    width: 100%;
 }
 
 .case-card {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 280px 1fr;
     gap: 3rem;
-    padding: 2.5rem;
-    background: #0B090A;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #E0E0E0;
+    align-items: start;
+}
+
+.case-card:last-child {
+    border-bottom: none;
+}
+
+/* Left column: stats */
+.case-left-col {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    border-left: 3px solid var(--color-accent);
+    text-align: center;
 }
 
-.case-card.reverse {
-    grid-template-columns: auto 1fr;
-    border-left: none;
-    border-right: 3px solid var(--color-accent);
+.case-left-col .big-stat {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
-.case-card.reverse .case-info {
-    order: 2;
+.case-left-col .big-stat-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
 }
 
-.case-card.reverse .case-stats {
-    order: 1;
+.case-left-col .small-stats {
+    display: flex;
+    gap: 1.5rem;
 }
 
-.case-info .client-label {
-    display: block;
+.case-left-col .small-stats .stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+}
+
+.case-left-col .small-stats .stat-label {
+    font-size: var(--text-label);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 0.25rem;
+}
+
+/* Right column: content */
+.case-right-col {
+    color: #0B090A;
+}
+
+.case-right-col .case-label {
     font-size: var(--text-label);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--color-accent);
+    margin-bottom: 0.25rem;
+}
+
+.case-right-col .case-headline {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: #0B090A;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.case-right-col .case-quote {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: var(--text-body);
+    line-height: 1.7;
     margin-bottom: 0.75rem;
 }
 
-.case-info .client-type {
-    font-family: var(--font-heading);
-    font-size: var(--text-subtitle);
+.case-right-col .case-quote .highlight {
+    color: #0B090A;
     font-weight: 600;
-    margin-bottom: 1rem;
-    color: #FFFFFF;
 }
 
-.case-info .case-quote {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: var(--text-body);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.case-info .case-quote .highlight {
-    color: #FFFFFF;
-    font-weight: 500;
-}
-
-.case-info .attribution {
+.case-right-col .attribution {
     font-size: var(--text-small);
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.5);
 }
 
-.case-stats {
-    display: flex;
-    gap: 2.5rem;
-}
-
-.case-stats .stat-item {
-    text-align: center;
-}
-
-.case-stats .stat-value {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: var(--text-stat);
-    font-weight: 700;
-    color: var(--color-accent);
-    line-height: 1.1;
-}
-
-.case-stats .stat-label {
-    display: block;
-    font-size: var(--text-label);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.6);
+.case-right-col .client-type {
+    font-size: var(--text-small);
+    color: rgba(0, 0, 0, 0.4);
     margin-top: 0.25rem;
 }
 
@@ -109,17 +130,16 @@
         gap: 2rem;
     }
 
-    .case-card.reverse {
-        grid-template-columns: 1fr;
+    .case-left-col {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #E0E0E0;
     }
 
-    .case-card.reverse .case-info,
-    .case-card.reverse .case-stats {
-        order: unset;
+    .case-left-col .big-stat {
+        font-size: 3rem;
     }
 
-    .case-stats {
-        justify-content: flex-start;
-        gap: 2rem;
+    .case-right-col {
+        text-align: center;
     }
 }
