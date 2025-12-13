@@ -1,0 +1,55 @@
+/* Testimonials Section Styles - Option 2: Vertical Stack with Accent Line */
+.testimonials-section {
+    padding: var(--spacing-xl) 0;
+    background-color: #0B090A;
+}
+
+.testimonials-section .section-header-bold h2 {
+    color: #FFFFFF;
+}
+
+.testimonials-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.testimonial-item {
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    gap: 2rem;
+}
+
+.testimonial-accent {
+    background: var(--color-accent, #E63946);
+}
+
+.testimonial-content blockquote {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 1.5rem 0;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 1rem;
+}
+
+.testimonial-title {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .testimonial-item {
+        gap: 1.5rem;
+    }
+
+    .testimonial-content blockquote {
+        font-size: 1.125rem;
+    }
+}
