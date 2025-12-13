@@ -747,17 +747,11 @@ ul {
     background-color: var(--color-bg);
 }
 
-.seen-label {
-    display: inline-block;
-    font-size: var(--text-small);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-accent);
+.as-seen-title {
+    font-size: var(--text-subtitle);
     margin-bottom: var(--spacing-md);
-    padding: 0.5rem 1.5rem;
-    border: 1px solid var(--color-accent);
-    border-radius: 8px;
-    font-weight: 600;
+    color: var(--color-text-main);
+    font-weight: 700;
 }
 
 .as-seen-in .container {
