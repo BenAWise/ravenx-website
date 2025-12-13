@@ -746,14 +746,14 @@ ul {
     align-self: stretch;
     width: 100vw;
     margin-left: calc((100% - 100vw) / 2);
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0 var(--spacing-md);
     margin-bottom: var(--spacing-xl);
     background-color: #FFFFFF;
     overflow: hidden;
 }
 
 .founders-featured .as-seen-title {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
     color: #0B090A;
     text-align: center;
 }
