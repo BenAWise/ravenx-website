@@ -137,15 +137,15 @@ h5,
 h6 {
     font-family: var(--font-heading);
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 1.2;
+    letter-spacing: -0.0075em;
     color: var(--color-text-main);
 }
 
 h1 {
     font-size: var(--text-display);
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 h2 {
@@ -282,7 +282,7 @@ ul {
 
 .logo {
     font-family: var(--font-heading);
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.5rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -444,13 +444,13 @@ ul {
 
 
 /* Services Section */
-.services-accordion {
+.services-section {
     padding: var(--spacing-xl) 0;
     background-color: #FFFFFF;
     border-top: 5px solid var(--color-accent);
 }
 
-.services-accordion .container {
+.services-section .container {
     max-width: var(--container-width);
 }
 
@@ -459,7 +459,7 @@ ul {
     color: #0B090A;
     text-align: center;
     margin-bottom: var(--spacing-xl);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .service-item {
@@ -474,7 +474,7 @@ ul {
 .service-number {
     font-family: var(--font-heading);
     font-size: var(--text-stat-large);
-    font-weight: 800;
+    font-weight: 700;
     color: var(--color-accent);
     display: block;
     margin-bottom: var(--spacing-sm);
@@ -526,7 +526,7 @@ ul {
     color: var(--color-text-main);
     text-transform: none;
     letter-spacing: -0.02em;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: var(--spacing-md);
 }
 

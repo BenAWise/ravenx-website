@@ -57,8 +57,8 @@
     </section>
 
 
-    <!-- Services Section - Accordion Style -->
-    <section id="services" class="services-accordion">
+    <!-- Services Section -->
+    <section id="services" class="services-section">
         <div class="container">
             <h2 class="services-title">What We Do</h2>
 
@@ -435,22 +435,6 @@
                 ticking = true;
             }
         }, { passive: true });
-
-        // Accordion toggle
-        function toggleAccordion(trigger) {
-            const item = trigger.closest('.accordion-item');
-            const isOpen = item.classList.contains('open');
-
-            // Close all other accordions
-            document.querySelectorAll('.accordion-item.open').forEach(openItem => {
-                openItem.classList.remove('open');
-            });
-
-            // Toggle current
-            if (!isOpen) {
-                item.classList.add('open');
-            }
-        }
     </script>
 </body>
 
