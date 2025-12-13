@@ -118,9 +118,9 @@
 }
 
 .case-right-col .client-type {
-    font-size: var(--text-small);
+    font-size: var(--text-body);
     color: #0B090A;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
 }
 
 /* Mobile responsive */
