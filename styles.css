@@ -69,15 +69,24 @@
     --font-body: 'Helvetica Now', sans-serif;
 
     /* Typography - Font Sizes (change these to update globally) */
-    --text-display: clamp(2.25rem, 4.5vw, 4rem);       /* Hero headline */
-    --text-title: clamp(2.5rem, 6vw, 4.5rem);          /* Section titles: "What We Do", "Who We Are" */
-    --text-subtitle: clamp(1.75rem, 3vw, 2.25rem);     /* Secondary headings: founder names, service headlines */
-    --text-body: 1.2rem;                               /* Body text */
-    --text-body-large: 1.5rem;                         /* Large body text */
-    --text-small: 0.875rem;                            /* Small UI text */
-    --text-label: 0.75rem;                             /* Labels, tiny text */
-    --text-stat: 2.5rem;                               /* Stat numbers */
-    --text-stat-large: 4rem;                           /* Large stat numbers (01, 02, 03) */
+    --text-display: clamp(2.25rem, 4.5vw, 4rem);
+    /* Hero headline */
+    --text-title: clamp(2.5rem, 6vw, 4.5rem);
+    /* Section titles: "What We Do", "Who We Are" */
+    --text-subtitle: clamp(1.75rem, 3vw, 2.25rem);
+    /* Secondary headings: founder names, service headlines */
+    --text-body: 1.2rem;
+    /* Body text */
+    --text-body-large: 1.5rem;
+    /* Large body text */
+    --text-small: 0.875rem;
+    /* Small UI text */
+    --text-label: 0.75rem;
+    /* Labels, tiny text */
+    --text-stat: 2.5rem;
+    /* Stat numbers */
+    --text-stat-large: 4rem;
+    /* Large stat numbers (01, 02, 03) */
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -110,6 +119,7 @@ body {
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     position: relative;
+    width: 100%;
     background-image:
         radial-gradient(ellipse 100% 80% at 10% 30%, rgba(20, 35, 60, 0.5) 0%, transparent 50%),
         radial-gradient(ellipse 80% 60% at 90% 15%, rgba(45, 20, 35, 0.4) 0%, transparent 45%),
@@ -288,16 +298,79 @@ ul {
     text-transform: uppercase;
 }
 
-.logo span {
-    color: var(--color-accent);
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0;
 }
 
-.logo-img {
-    height: 4rem;
-    width: auto;
-    display: block;
-    margin-left: -0.5rem;
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-text-main);
+    border-radius: 3px;
+    transition: all 0.3s ease;
 }
+
+/* Mobile Nav Overlay */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        padding: 2rem;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        font-size: 2rem;
+        font-family: var(--font-heading);
+    }
+
+    /* Hamburger Animation */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+}
+
 
 .nav-links {
     display: flex;
@@ -363,7 +436,7 @@ ul {
     z-index: 0;
 }
 
-.hero > * {
+.hero>* {
     position: relative;
     z-index: 1;
 }
@@ -590,21 +663,55 @@ ul {
 /* Responsive */
 @media (max-width: 768px) {
     :root {
+        --spacing-md: 1.5rem;
         --spacing-lg: 3rem;
-        --spacing-xl: 3rem;
+        --spacing-xl: 4rem;
+    }
+
+    .container {
+        padding: 0 1.25rem;
     }
 
     h1 {
         font-size: 2.5rem;
+        /* Fallback */
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
     }
 
     .section-grid {
         grid-template-columns: 1fr;
     }
 
-    .nav-links {
-        display: none;
-        /* Mobile menu to be implemented if needed */
+    /* Hero adjustments */
+    .hero {
+        padding-top: 100px;
+        min-height: auto;
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .hero-content {
+        text-align: left;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    /* Trusted By adjustments */
+    .logo-grid {
+        gap: 1.5rem;
+    }
+
+    .client-logo-img {
+        max-width: 100px;
+        height: 24px;
     }
 }
 
@@ -734,11 +841,64 @@ ul {
     line-height: 1.7;
 }
 
+/* RESTORED LOGO STYLES */
+.logo span {
+    color: var(--color-accent);
+}
+
+.logo-img {
+    height: 4rem;
+    width: auto;
+    display: block;
+    margin-left: -0.5rem;
+}
+
 .highlight {
     color: var(--color-text-main);
     font-weight: 600;
     border-bottom: 2px solid var(--color-accent);
     padding-bottom: 1px;
+}
+
+/* Mobile responsive for Founders */
+@media (max-width: 900px) {
+    .founder-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .founder-left-col {
+        width: 100%;
+    }
+
+    .founder-photo {
+        margin: 0 auto 1.5rem;
+    }
+
+    .founder-right-col {
+        text-align: left;
+        /* Keep bio text readable */
+    }
+
+    .founder-stats {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .founder-right-col {
+        text-align: left;
+    }
+
+    .founder-name {
+        text-align: center;
+    }
+
+    .founder-role {
+        text-align: center;
+    }
 }
 
 /* Founders Featured In */
