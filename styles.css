@@ -287,7 +287,7 @@ ul {
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
-    padding: 0.4rem 1.5rem 0.4rem 0;
+    padding: 0.4rem 1.5rem;
 }
 
 .logo {
@@ -296,6 +296,18 @@ ul {
     font-size: 1.5rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+}
+
+/* RESTORED LOGO STYLES */
+.logo span {
+    color: var(--color-accent);
+}
+
+.logo-img {
+    height: 4rem;
+    width: auto;
+    display: block;
+    margin-left: 0;
 }
 
 /* Hamburger Menu */
@@ -680,6 +692,47 @@ ul {
 
     .section-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Mobile Header - Full Width */
+    .site-header {
+        padding: 0;
+    }
+
+    .site-header .container {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        background-color: rgba(11, 9, 10, 0.95);
+        /* Slightly darker/solid for mobile */
+        max-width: 100%;
+    }
+
+    /* Mobile Nav Overlay */
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        visibility: hidden;
+        /* Hide when closed */
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
+        z-index: 1000;
+        padding: 2rem;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        visibility: visible;
     }
 
     /* Hero adjustments */
